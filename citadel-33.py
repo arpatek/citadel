@@ -44,6 +44,7 @@ INT_LIST = string.digits
 SPECIAL_CHAR_LIST = string.punctuation
 FULL_LIST = INT_LIST + CHAR_LIST + SPECIAL_CHAR_LIST
 
+
 # ──[ User Input & Selection Logic ]────────────────────────────────────────────
 def get_usr_info() -> tuple[str, str, str]:
     """
@@ -56,7 +57,8 @@ def get_usr_info() -> tuple[str, str, str]:
     # Prompt user until a valid password style is chosen (1, 2, or 3)
     while True:
         try:
-            print("""
+            print(
+                """
     Choose a password style:
 
     [1] Random
@@ -67,7 +69,8 @@ def get_usr_info() -> tuple[str, str, str]:
 
     [3] Pattern + Scope + Random
         ➤ Example: myPattern.-github.r@nd0m!
-    """)
+    """
+            )
             passwd_style = int(input("> ").strip())
             if passwd_style not in [1, 2, 3]:
                 print("Invalid option. Please choose 1, 2, or 3.")
@@ -87,6 +90,7 @@ def get_usr_info() -> tuple[str, str, str]:
 
     return passwd_style, usr_pattern, scope
 
+
 # ──[ Random Pattern Generator ]────────────────────────────────────────────────
 def random_pattern(length: int) -> str:
     """
@@ -103,7 +107,8 @@ def random_pattern(length: int) -> str:
     for _ in range(int(length)):
         char = random.choice(FULL_LIST)
         result.append(char)
-    return ''.join(result)
+    return "".join(result)
+
 
 # ──[ Main Execution Flow ]─────────────────────────────────────────────────────
 def main() -> None:
@@ -119,7 +124,9 @@ def main() -> None:
     if passwd_style == 1:
         while True:
             try:
-                rand_length = int(input("Choose a password length (>= 10 characters): ").strip())
+                rand_length = int(
+                    input("Choose a password length (>= 10 characters): ").strip()
+                )
                 if rand_length < 10:
                     print("Password must be at least 10 characters long.")
                     continue
@@ -144,6 +151,7 @@ def main() -> None:
 
     # Print the final generated password
     print(f"\nGenerated Password:\n{password}")
+
 
 # ──[ Script Entry Point ]──────────────────────────────────────────────────────
 if __name__ == "__main__":
