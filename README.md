@@ -1,7 +1,3 @@
-
-
-
-
 # Citadel-33
 
 ```
@@ -21,12 +17,12 @@
 
 ## Overview
 
-**Citadel-33** is a pattern-based password generator written in Python. It allows users to generate passwords with optional user-defined patterns and scope tags, ensuring both structure and entropy for strong credentials. Designed to be terminal-native, it serves developers, sysadmins, and power users who want control over password structure without sacrificing randomness.
+**Citadel-33** is a pattern-based password generator written in Python. It allows users to generate passwords with optional user-defined patterns and scope tags, ensuring both structure and strong entropy for secure credentials. It is built for terminal-native workflows and serves developers, sysadmins, and power users who want structured password control without compromising randomness.
 
 ## Features
 
-- Pattern + scope based password generation
-- Fully random password option
+- Fully random password generation
+- Structured passwords with pattern and scope options
 - User-friendly terminal prompts
 - Built-in input validation
 - Extensible and documented codebase
@@ -47,7 +43,7 @@
 ## Usage
 
 ```bash
-python3 citadel-33.py
+python3 citadel_33.py
 ```
 
 Follow the prompts to choose your password style, length, and optional pattern/scope.
@@ -59,11 +55,11 @@ Follow the prompts to choose your password style, length, and optional pattern/s
 
 ## Roadmap
 
-- [ ] Add CLI flag support
-- [ ] Implement clipboard copy with secure timeout
-- [ ] Expand input validation using `try` blocks
-- [ ] Optional TUI mode
-- [ ] Export as pip-installable package
+- [ ] Add CLI flag support via argparse
+- [ ] Implement clipboard copy with secure timeout using pyperclip
+- [ ] Harden input validation with full try/except coverage
+- [ ] Add optional terminal UI (TUI) mode using Textual or npyscreen
+- [ ] Export as a pip-installable CLI package
 
 ## Author
 
