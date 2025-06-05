@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-citadel-33.py - Secure Pattern-Based Password Generator
+citadel_33.py - Secure Pattern-Based Password Generator
 ========================================================
 
 Citadel-33 generates strong, human-readable passwords using customizable
@@ -17,7 +17,7 @@ Dependencies:
 
 Sample Usage:
 -------------
-$ ./citadel-33.py
+$ ./citadel_33.py
 """
 
 # ──[ Standard Library Imports ]─────────────────────────────────────────────
@@ -46,13 +46,13 @@ FULL_LIST = INT_LIST + CHAR_LIST + SPECIAL_CHAR_LIST
 
 
 # ──[ User Input & Selection Logic ]────────────────────────────────────────────
-def get_usr_info() -> tuple[str, str, str]:
+def get_usr_info() -> tuple[int, str, str]:
     """
     Prompt the user to choose a password generation style and collect
     pattern and scope inputs if applicable.
 
     Returns:
-        tuple: (passwd_style (str), usr_pattern (str), scope (str))
+        tuple: (passwd_style (int), usr_pattern (str), scope (str))
     """
     # Prompt user until a valid password style is chosen (1, 2, or 3)
     while True:
@@ -103,7 +103,7 @@ def random_pattern(length: int) -> str:
         str: A randomized string composed of letters, digits, and symbols.
     """
     # Generate a random character list from FULL_LIST
-    result = []
+    result: list[str] = []
     for _ in range(int(length)):
         char = random.choice(FULL_LIST)
         result.append(char)
@@ -137,12 +137,22 @@ def main() -> None:
         password = rand
     # Handle style 2: Pattern + Random
     elif passwd_style == 2:
-        rand_length = input("Desired length for the random portion: ")
+        while True:
+            try:
+                rand_length = int(input("Desired length for the random portion: ").strip())
+                break
+            except ValueError:
+                print("Please enter a valid number.")
         rand = random_pattern(rand_length)
         password = f"{usr_pattern}.-{rand}!"
     # Handle style 3: Pattern + Scope + Random
     elif passwd_style == 3:
-        rand_length = input("Desired length for the random portion: ")
+        while True:
+            try:
+                rand_length = int(input("Desired length for the random portion: ").strip())
+                break
+            except ValueError:
+                print("Please enter a valid number.")
         rand = random_pattern(rand_length)
         password = f"{usr_pattern}.-{scope}.{rand}!"
     else:
