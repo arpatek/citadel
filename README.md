@@ -1,33 +1,36 @@
-# Citadel-33
+# citadel
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                        Citadel-33                            │
+│                          Citadel                             │
 │             Pattern-Based Password Generator                 │
 │                                                              │
-│      Author: Juan J Garcia (0x1G)                            │
+│      Author: Juan Garcia (arpatek)                           │
 │      Description: Generates secure passwords using           │
 │                   patterns, scopes, and randomized entropy.  │
 └──────────────────────────────────────────────────────────────┘
 ```
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue)
-![Python](https://img.shields.io/badge/python-3.6%2B-yellow)
-![License](https://img.shields.io/badge/license-MIT-green)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.6%2B-blue.svg)](https://www.python.org/downloads/)
+[![Version](https://img.shields.io/badge/version-0.2.0-blue.svg)]()
 
-## Overview
+**citadel** is a pattern-based password generator written in Python. It generates
+structured, human-readable passwords with optional scope tagging and cryptographically
+secure entropy — built for terminal-native workflows.
 
-**Citadel-33** is a pattern-based password generator written in Python. It allows users to generate passwords with optional user-defined patterns and scope tags, ensuring both structure and strong entropy for secure credentials. It is built for terminal-native workflows and serves developers, sysadmins, and power users who want structured password control without compromising randomness.
+---
 
-## Features
+### Features
 
-- Fully random password generation
-- Structured passwords with pattern and scope options
-- User-friendly terminal prompts
-- Built-in input validation
-- Extensible and documented codebase
+`[Cryptographically Secure]` Uses Python's `secrets` module — not `random` — for strong entropy.  
+`[Pattern Support]` Three generation styles: fully random, pattern + random, pattern + scope + random.  
+`[No Dependencies]` Standard library only — nothing to install.  
+`[Input Validation]` Validates all prompts with retry loops.  
 
-## Example Styles
+---
+
+### Example Styles
 
 ```
 [1] Random
@@ -37,34 +40,31 @@
     ➤ Example: myPattern.-r@nd0m!
 
 [3] Pattern + Scope + Random
-    ➤ Example: myPattern.-github.-r@nd0m!
+    ➤ Example: myPattern.-github.r@nd0m!
 ```
 
-## Usage
+---
+
+### Usage
 
 ```bash
-python3 citadel_33.py
+./citadel.py
 ```
 
-Follow the prompts to choose your password style, length, and optional pattern/scope.
+Follow the prompts to choose a password style, length, and optional pattern/scope.
 
-## Requirements
+---
 
-- Python 3.6 or higher
-- No external dependencies (standard library only)
+### Requirements
 
-## Roadmap
+- Python 3.6+
+- No external dependencies
+
+---
+
+### Roadmap
 
 - [ ] Add CLI flag support via argparse
-- [ ] Implement clipboard copy with secure timeout using pyperclip
-- [ ] Harden input validation with full try/except coverage
-- [ ] Add optional terminal UI (TUI) mode using Textual or npyscreen
-- [ ] Export as a pip-installable CLI package
-
-## Author
-
-Juan J. Garcia ([@0xjuang](https://github.com/0xjuang))  
-
-## License
-
-This project is licensed under the MIT License.
+- [ ] Clipboard copy with secure timeout
+- [ ] Optional TUI mode via Textual
+- [ ] Export as pip-installable CLI package
