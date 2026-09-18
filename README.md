@@ -11,6 +11,7 @@
 └──────────────────────────────────────────────────────────────┘
 ```
 
+[![built by arpatek](.assets/badge.svg)](https://arpatek.dev)
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.6%2B-blue.svg)](https://www.python.org/downloads/)
 [![Version](https://img.shields.io/badge/version-0.2.0-blue.svg)]()
